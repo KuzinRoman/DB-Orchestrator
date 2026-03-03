@@ -1,0 +1,11 @@
+# Logs and temporary artifacts from pipeline runs
+*.txt
+*.log
+
+# IDE
+.idea/
+.vscode/
+
+# OS
+Thumbs.db
+Desktop.ini
