@@ -7,12 +7,19 @@
 
 # Для запуска требуется:
 
+## Если требуется автоматически создавтаь базу на кластере:
+
 Установить oscript;
 Установить irac. "opm install irac"
+Установить vanessa-runner. "opm install vanessa-runner"
 
-Использует sqlcmd - для MSSQL;
+
+## Установить:
+sqlcmd и psql – для работы с БД
+
+sqlcmd - для MSSQL;
 psql - для POSTGRE;
-ibmcd - для бекапирования средствами 1С без выбрасывания сенасов из базы 1С.
+ibmcd - для бекапирования средствами 1С без выбрасывания сеансов из базы 1С.
 
 ## Как работает, что лежит внутри
 
@@ -43,12 +50,13 @@ ibmcd - для бекапирования средствами 1С без выб
 
 ## Ключевые параметры pipeline
 
-- `DBMS`: `MSSQLServer` / `PostgreSQL`
-- `DB_TOOL`: `auto` / `sqlcmd` / `psql` / `ibcmd`
+- `DBMS`: `MSSQLServer` / `PostgreSQL` - СУБД
+- `DB_TOOL`: `auto` / `sqlcmd` / `psql` / `ibcmd` - режим бекапирования и восстановления
 - `DB_HOST`, `DB_NAME`, `DB_TARGET`
-- `CREDENTIALS_ID_DB`, `CREDENTIALS_ID_IBCMD`
-- `RAS_HOST`, `RAS_PORT`
-- `POST_RESTORE_TOOL`, `POST_RESTORE_SQL_FILE`, `POST_RESTORE_SQL_TEXT`
+- `CREDENTIALS_ID_DB`, `CREDENTIALS_ID_IBCMD` - необходимо задать в CREDENTIALS JENKINS.
+CREDENTIALS_ID_DB - логин и пароль от СУБД, CREDENTIALS_ID_IBCMD - логин и пароль от 1С.
+- `RAS_HOST`, `RAS_PORT` - адрес rac для создания базы
+- `POST_RESTORE_TOOL`, `POST_RESTORE_SQL_FILE`, `POST_RESTORE_SQL_TEXT` - параметры для вызова после восстановления базы.
 
 ## Примечания
 
